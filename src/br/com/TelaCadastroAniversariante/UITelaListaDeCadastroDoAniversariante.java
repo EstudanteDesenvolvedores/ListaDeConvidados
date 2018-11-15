@@ -3,20 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uilistadeconvidados;
+package br.com.TelaCadastroAniversariante;
 
-import br.com.telaaniversariante.UITelaCadastroAniversariante;
+import br.com.TelaCadastroConvidado.UITelaListaDeCadastroDeConvidado;
 
 /**
  *
  * @author Jean Heberth
  */
-public class UITelaListaDeConvidados extends javax.swing.JFrame {
+public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
 
     /**
      * Creates new form UITelaListaDeConvidados
      */
-    public UITelaListaDeConvidados() {
+    public UITelaListaDeCadastroDoAniversariante() {
         initComponents();
     }
 
@@ -135,7 +135,7 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarConvidadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarConvidadosActionPerformed
-            UITelaCadastroAniversariante CadConvidados = new UITelaCadastroAniversariante();
+            UITelaListaDeCadastroDeConvidado CadConvidados = new UITelaListaDeCadastroDeConvidado();
             CadConvidados.setVisible(true);
             dispose();
     }//GEN-LAST:event_btnSalvarConvidadosActionPerformed
@@ -157,20 +157,21 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UITelaListaDeConvidados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UITelaListaDeCadastroDoAniversariante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UITelaListaDeConvidados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UITelaListaDeCadastroDoAniversariante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UITelaListaDeConvidados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UITelaListaDeCadastroDoAniversariante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UITelaListaDeConvidados.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UITelaListaDeCadastroDoAniversariante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UITelaListaDeConvidados().setVisible(true);
+                new UITelaListaDeCadastroDoAniversariante().setVisible(true);
             }
         });
     }
