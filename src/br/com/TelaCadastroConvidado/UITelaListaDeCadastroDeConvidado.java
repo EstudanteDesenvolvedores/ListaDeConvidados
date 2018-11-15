@@ -5,15 +5,19 @@
  */
 package br.com.TelaCadastroConvidado;
 
+import br.com.classe.Pessoa;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Jean Heberth
  */
 public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
-    /**
-     * Creates new form UITelaCadastroAniversariante
-     */
+    Pessoa pessoa;
+    Pessoa[] cadastraListaConvidado;
+    int i = 0, qtdConvidados;
+
     public UITelaListaDeCadastroDeConvidado() {
         initComponents();
     }
@@ -40,12 +44,13 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtCampoMimo = new javax.swing.JTextArea();
-        btnBotaoSalvarCadastro = new javax.swing.JButton();
+        btnSalvarCadastro = new javax.swing.JButton();
+        btnSairDoCadastro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Empresa J&E - Softwares");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de convidados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro de convidados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Nome:");
@@ -59,6 +64,11 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         jLabel3.setText("Quantidade de pessoas:");
 
         btnSalvarQuantidadeDePessoas.setText("Salvar");
+        btnSalvarQuantidadeDePessoas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarQuantidadeDePessoasActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Quantidade de fraldas:");
@@ -70,49 +80,61 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         txtCampoMimo.setRows(5);
         jScrollPane1.setViewportView(txtCampoMimo);
 
-        btnBotaoSalvarCadastro.setText("Salvar");
+        btnSalvarCadastro.setText("Salvar");
+        btnSalvarCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalvarCadastroActionPerformed(evt);
+            }
+        });
+
+        btnSairDoCadastro.setText("Sair");
+        btnSairDoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSairDoCadastroActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(149, 149, 149)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(153, 153, 153)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtCampoQuantidadeDePessoas))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtCampoQuantidadeDeFraldas))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtCampoNomeConvidado)
-                                    .addComponent(cmbCampoSelecionaFraldas, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane1)))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCampoQuantidadeDePessoas))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
                         .addGap(18, 18, 18)
-                        .addComponent(btnSalvarQuantidadeDePessoas))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnBotaoSalvarCadastro)
-                        .addGap(178, 178, 178)))
-                .addGap(102, 102, 102))
+                        .addComponent(txtCampoQuantidadeDeFraldas))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtCampoNomeConvidado)
+                            .addComponent(cmbCampoSelecionaFraldas, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1)))
+                .addGap(18, 18, 18)
+                .addComponent(btnSalvarQuantidadeDePessoas)
+                .addGap(98, 98, 98))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(241, 241, 241)
+                .addComponent(btnSalvarCadastro)
+                .addGap(62, 62, 62)
+                .addComponent(btnSairDoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(119, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtCampoQuantidadeDePessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -138,8 +160,10 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
                         .addGap(42, 42, 42)
                         .addComponent(jLabel5)))
                 .addGap(32, 32, 32)
-                .addComponent(btnBotaoSalvarCadastro)
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnSalvarCadastro)
+                    .addComponent(btnSairDoCadastro))
+                .addGap(29, 29, 29))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -147,21 +171,46 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(222, 222, 222)
+                .addGap(225, 225, 225)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(235, Short.MAX_VALUE))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addGap(98, 98, 98)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(146, Short.MAX_VALUE))
+                .addContainerGap(145, Short.MAX_VALUE))
         );
 
         setSize(new java.awt.Dimension(1134, 736));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSalvarQuantidadeDePessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarQuantidadeDePessoasActionPerformed
+
+        cadastraListaConvidado = new Pessoa[Integer.parseInt(txtCampoQuantidadeDePessoas.getText())];
+        JOptionPane.showMessageDialog(null, "Número de convidado cadastrado! "
+                + " Por favor digite os dados dos convidados");
+        txtCampoNomeConvidado.requestFocus();
+    }//GEN-LAST:event_btnSalvarQuantidadeDePessoasActionPerformed
+
+    private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
+        if (i < cadastraListaConvidado.length) {
+            pessoa = new Pessoa();
+            pessoa.setNome(txtCampoNomeConvidado.getName());
+        }
+        cadastraListaConvidado[i] = pessoa;
+        i++;
+        qtdConvidados = cadastraListaConvidado.length - i;
+        JOptionPane.showMessageDialog(null, "Convidado Cadastrado com sucesso!", "" + "Você pode cadastar mais: " + qtdConvidados + " Pessoa", JOptionPane.INFORMATION_MESSAGE);
+        LimparCampos();
+
+    }//GEN-LAST:event_btnSalvarCadastroActionPerformed
+
+    private void btnSairDoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairDoCadastroActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSairDoCadastroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,7 +255,8 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBotaoSalvarCadastro;
+    private javax.swing.JButton btnSairDoCadastro;
+    private javax.swing.JButton btnSalvarCadastro;
     private javax.swing.JButton btnSalvarQuantidadeDePessoas;
     private javax.swing.JComboBox<String> cmbCampoSelecionaFraldas;
     private javax.swing.JLabel jLabel1;
@@ -221,4 +271,13 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
     private javax.swing.JTextField txtCampoQuantidadeDeFraldas;
     private javax.swing.JTextField txtCampoQuantidadeDePessoas;
     // End of variables declaration//GEN-END:variables
+
+    public void LimparCampos() {
+        txtCampoQuantidadeDePessoas.setText("");
+        txtCampoNomeConvidado.setText("");
+        txtCampoQuantidadeDeFraldas.setText("");
+        txtCampoMimo.setText("");
+        cmbCampoSelecionaFraldas.setSelectedIndex(0);
+    }
+
 }

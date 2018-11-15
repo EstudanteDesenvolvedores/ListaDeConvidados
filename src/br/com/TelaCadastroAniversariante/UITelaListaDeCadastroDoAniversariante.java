@@ -6,6 +6,7 @@
 package br.com.TelaCadastroAniversariante;
 
 import br.com.TelaCadastroConvidado.UITelaListaDeCadastroDeConvidado;
+import br.com.classe.Pessoa;
 
 /**
  *
@@ -13,9 +14,20 @@ import br.com.TelaCadastroConvidado.UITelaListaDeCadastroDeConvidado;
  */
 public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
 
+    
+    UITelaListaDeCadastroDeConvidado cadConvidado = new UITelaListaDeCadastroDeConvidado();
+    
+    
+    
     /**
      * Creates new form UITelaListaDeConvidados
      */
+    Pessoa pessoa;
+    Pessoa[] listaPessoa = new Pessoa[30];
+    int i = 0;
+    
+   
+
     public UITelaListaDeCadastroDoAniversariante() {
         initComponents();
     }
@@ -35,7 +47,7 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
         JLabel2 = new javax.swing.JLabel();
         txtDataAniversario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        txtQquantidadeConvidados = new javax.swing.JTextField();
+        txtQuantidadeConvidados = new javax.swing.JTextField();
         btnSalvarConvidados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,7 +67,7 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Quantidade de Convidados:");
 
-        txtQquantidadeConvidados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txtQuantidadeConvidados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         btnSalvarConvidados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnSalvarConvidados.setText("Salvar");
@@ -87,7 +99,7 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(txtDataAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
                                 .addComponent(txtNome))
-                            .addComponent(txtQquantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtQuantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
                         .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -106,7 +118,7 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
                     .addComponent(txtDataAniversario, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtQquantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQuantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
                 .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -135,9 +147,21 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSalvarConvidadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarConvidadosActionPerformed
-            UITelaListaDeCadastroDeConvidado CadConvidados = new UITelaListaDeCadastroDeConvidado();
-            CadConvidados.setVisible(true);
-            dispose();
+
+        if (i < listaPessoa.length) {
+
+            pessoa = new Pessoa();
+
+            pessoa.setNome(txtNome.getText());
+            pessoa.setDataAniversario(txtDataAniversario.getText());
+
+            listaPessoa[i] = pessoa;
+            i++;
+
+        }
+        
+        LimparCampos();
+        cadConvidado.setVisible(true);
     }//GEN-LAST:event_btnSalvarConvidadosActionPerformed
 
     /**
@@ -184,6 +208,11 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtDataAniversario;
     private javax.swing.JTextField txtNome;
-    private javax.swing.JTextField txtQquantidadeConvidados;
+    private javax.swing.JTextField txtQuantidadeConvidados;
     // End of variables declaration//GEN-END:variables
+ public void LimparCampos() {
+        txtNome.setText("");
+        txtDataAniversario.setText("");
+        txtQuantidadeConvidados.setText("");
+    }
 }
