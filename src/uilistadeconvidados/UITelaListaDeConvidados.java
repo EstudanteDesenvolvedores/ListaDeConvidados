@@ -5,6 +5,8 @@
  */
 package uilistadeconvidados;
 
+import br.com.telaaniversariante.UITelaCadastroAniversariante;
+
 /**
  *
  * @author Jean Heberth
@@ -34,11 +36,11 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
         txtDataAniversario = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         txtQquantidadeConvidados = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btnSalvarConvidados = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Lista de Convidados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados do Aniversariante", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Nome do aniversariante:");
@@ -55,11 +57,11 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
 
         txtQquantidadeConvidados.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnSalvarConvidados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnSalvarConvidados.setText("Salvar");
+        btnSalvarConvidados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnSalvarConvidadosActionPerformed(evt);
             }
         });
 
@@ -88,7 +90,7 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
                             .addComponent(txtQquantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(269, 269, 269)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,7 +109,7 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
                     .addComponent(txtQquantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
         );
 
@@ -132,9 +134,11 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnSalvarConvidadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarConvidadosActionPerformed
+            UITelaCadastroAniversariante CadConvidados = new UITelaCadastroAniversariante();
+            CadConvidados.setVisible(true);
+            dispose();
+    }//GEN-LAST:event_btnSalvarConvidadosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,7 +177,7 @@ public class UITelaListaDeConvidados extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel2;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSalvarConvidados;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
