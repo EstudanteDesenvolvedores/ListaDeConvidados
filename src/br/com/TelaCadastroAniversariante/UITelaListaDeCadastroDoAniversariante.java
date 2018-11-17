@@ -1,12 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package br.com.TelaCadastroAniversariante;
 
 import br.com.TelaCadastroConvidado.UITelaListaDeCadastroDeConvidado;
 import br.com.classe.Pessoa;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,19 +10,14 @@ import br.com.classe.Pessoa;
  */
 public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
 
-    
     UITelaListaDeCadastroDeConvidado cadConvidado = new UITelaListaDeCadastroDeConvidado();
-    
-    
-    
+
     /**
      * Creates new form UITelaListaDeConvidados
      */
     Pessoa pessoa;
     Pessoa[] listaPessoa = new Pessoa[30];
     int i = 0;
-    
-   
 
     public UITelaListaDeCadastroDoAniversariante() {
         initComponents();
@@ -49,6 +40,7 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtQuantidadeConvidados = new javax.swing.JTextField();
         btnSalvarConvidados = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,6 +69,14 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -84,25 +84,25 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(49, 49, 49)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(JLabel2))
-                                .addGap(33, 33, 33))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)))
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtDataAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
-                                .addComponent(txtNome))
-                            .addComponent(txtQuantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2)
+                            .addComponent(JLabel2))
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(txtDataAniversario, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                        .addComponent(txtNome))
+                    .addComponent(txtQuantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(269, 269, 269)
-                        .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(38, 38, 38)
+                        .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(44, 44, 44)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -120,9 +120,11 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtQuantidadeConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 81, Short.MAX_VALUE)
-                .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(btnSalvarConvidados, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -155,14 +157,26 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
             pessoa.setNome(txtNome.getText());
             pessoa.setDataAniversario(txtDataAniversario.getText());
 
-            listaPessoa[i] = pessoa;
-            i++;
-
+            if (txtNome.getText().equals("") || txtDataAniversario.getText().equals("")
+                    || txtQuantidadeConvidados.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
+                txtNome.requestFocus();
+                txtDataAniversario.requestFocus();
+                txtQuantidadeConvidados.requestFocusInWindow();
+            } else {
+                listaPessoa[i] = pessoa;
+                i++;
+                JOptionPane.showMessageDialog(null, "Aniversariante Cadastrado com sucesso!");
+                LimparCampos();
+                cadConvidado.setVisible(true);
+            }
         }
-        
-        LimparCampos();
-        cadConvidado.setVisible(true);
     }//GEN-LAST:event_btnSalvarConvidadosActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            System.exit(0);
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,6 +217,7 @@ public class UITelaListaDeCadastroDoAniversariante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel JLabel2;
     private javax.swing.JButton btnSalvarConvidados;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;

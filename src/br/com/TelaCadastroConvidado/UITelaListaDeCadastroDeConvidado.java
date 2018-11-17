@@ -16,7 +16,7 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
     Pessoa pessoa;
     Pessoa[] cadastraListaConvidado;
-    int i = 0, qtdConvidados;
+    int i = 0, qtdConvidados, campoVazio = 0;
 
     public UITelaListaDeCadastroDeConvidado() {
         initComponents();
@@ -62,6 +62,12 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Quantidade de pessoas:");
+
+        txtCampoQuantidadeDePessoas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCampoQuantidadeDePessoasActionPerformed(evt);
+            }
+        });
 
         btnSalvarQuantidadeDePessoas.setText("Salvar");
         btnSalvarQuantidadeDePessoas.addActionListener(new java.awt.event.ActionListener() {
@@ -189,28 +195,38 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
     private void btnSalvarQuantidadeDePessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarQuantidadeDePessoasActionPerformed
 
-        cadastraListaConvidado = new Pessoa[Integer.parseInt(txtCampoQuantidadeDePessoas.getText())];
-        JOptionPane.showMessageDialog(null, "Número de convidado cadastrado! "
-                + " Por favor digite os dados dos convidados");
-        txtCampoNomeConvidado.requestFocus();
+        ValidarCampoQuantidadeDeConvidados();
+
+
     }//GEN-LAST:event_btnSalvarQuantidadeDePessoasActionPerformed
 
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
         if (i < cadastraListaConvidado.length) {
             pessoa = new Pessoa();
+
             pessoa.setNome(txtCampoNomeConvidado.getName());
+            if (txtCampoNomeConvidado.getText().equals("") || txtCampoQuantidadeDeFraldas.getText().equals("")) {
+                JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
+                txtCampoNomeConvidado.requestFocus();
+                txtCampoQuantidadeDeFraldas.requestFocus();
+            } else {
+                cadastraListaConvidado[i] = pessoa;
+                i++;
+                qtdConvidados = cadastraListaConvidado.length - i;
+                JOptionPane.showMessageDialog(null, "Convidado Cadastrado com sucesso!", "" + "Você pode cadastar mais: " + qtdConvidados + " Pessoa", JOptionPane.INFORMATION_MESSAGE);
+                LimparCampos();
+            }
         }
-        cadastraListaConvidado[i] = pessoa;
-        i++;
-        qtdConvidados = cadastraListaConvidado.length - i;
-        JOptionPane.showMessageDialog(null, "Convidado Cadastrado com sucesso!", "" + "Você pode cadastar mais: " + qtdConvidados + " Pessoa", JOptionPane.INFORMATION_MESSAGE);
-        LimparCampos();
 
     }//GEN-LAST:event_btnSalvarCadastroActionPerformed
 
     private void btnSairDoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairDoCadastroActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnSairDoCadastroActionPerformed
+
+    private void txtCampoQuantidadeDePessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCampoQuantidadeDePessoasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCampoQuantidadeDePessoasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -280,4 +296,28 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         cmbCampoSelecionaFraldas.setSelectedIndex(0);
     }
 
+    public void ValidarCampoQuantidadeDeConvidados() {
+        if (txtCampoQuantidadeDePessoas.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
+            txtCampoQuantidadeDePessoas.requestFocus();
+        } else {
+            cadastraListaConvidado = new Pessoa[Integer.parseInt(txtCampoQuantidadeDePessoas.getText())];
+            JOptionPane.showMessageDialog(null, "Número de convidado cadastrado! "
+                    + " Por favor digite os dados dos convidados");
+            txtCampoNomeConvidado.requestFocus();
+            txtCampoQuantidadeDePessoas.setText("");
+
+        }
+    }
+
+//    public void ValidarCamposConvidado() {
+//        if (txtCampoNomeConvidado.getText().equals("") && txtCampoQuantidadeDeFraldas.getText().equals("")) {
+//            JOptionPane.showMessageDialog(null, "Por Favor preencha os campos corretamente!");
+//            ValidarCamposConvidado();
+//            
+//        } else {
+//            JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+//        }
+//
+//    }
 }
