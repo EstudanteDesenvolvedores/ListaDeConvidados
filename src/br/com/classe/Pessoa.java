@@ -5,13 +5,14 @@
  */
 package br.com.classe;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jean Heberth
  */
 public class Pessoa {
-    
-    
+
     private String nome;
     private String dataAniversario;
 
@@ -19,9 +20,9 @@ public class Pessoa {
         this.nome = nome;
         this.dataAniversario = dataAniversario;
     }
-    
-    public Pessoa(){
-        
+
+    public Pessoa() {
+
     }
 
     public String getNome() {
@@ -39,10 +40,10 @@ public class Pessoa {
     public void setDataAniversario(String dataAniversario) {
         this.dataAniversario = dataAniversario;
     }
-    
-    public void quantidadeFraldas(){
-        
+
+    public void quantidadeFraldas() {
+
     }
-    
-    
+  
+
 }

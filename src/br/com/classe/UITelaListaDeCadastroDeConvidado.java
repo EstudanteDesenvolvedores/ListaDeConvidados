@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.TelaCadastroConvidado;
+package br.com.classe;
 
+import br.com.classe.Dados;
 import br.com.classe.Pessoa;
 import javax.swing.JOptionPane;
 
@@ -14,9 +15,10 @@ import javax.swing.JOptionPane;
  */
 public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
-    Pessoa pessoa;
-    Pessoa[] cadastraListaConvidado;
-    int i = 0, qtdConvidados, campoVazio = 0;
+   
+    Pessoa pp = new Pessoa();
+    Dados dados = new Dados();
+    
 
     public UITelaListaDeCadastroDeConvidado() {
         initComponents();
@@ -36,16 +38,15 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         txtCampoNomeConvidado = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         cmbCampoSelecionaFraldas = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        txtCampoQuantidadeDePessoas = new javax.swing.JTextField();
-        btnSalvarQuantidadeDePessoas = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtCampoQuantidadeDeFraldas = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtCampoMimo = new javax.swing.JTextArea();
         btnSalvarCadastro = new javax.swing.JButton();
-        btnSairDoCadastro = new javax.swing.JButton();
+        btnListarConvidado = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstListarConvidados = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Empresa J&E - Softwares");
@@ -59,22 +60,6 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         jLabel2.setText("Fraldas:");
 
         cmbCampoSelecionaFraldas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--------------", "Fraldas \" P \"", "Fraldas \" M \"", "Fraldas \" G \"" }));
-
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Quantidade de pessoas:");
-
-        txtCampoQuantidadeDePessoas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCampoQuantidadeDePessoasActionPerformed(evt);
-            }
-        });
-
-        btnSalvarQuantidadeDePessoas.setText("Salvar");
-        btnSalvarQuantidadeDePessoas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalvarQuantidadeDePessoasActionPerformed(evt);
-            }
-        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Quantidade de fraldas:");
@@ -93,59 +78,56 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
             }
         });
 
-        btnSairDoCadastro.setText("Sair");
-        btnSairDoCadastro.addActionListener(new java.awt.event.ActionListener() {
+        btnListarConvidado.setText("Listar");
+        btnListarConvidado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSairDoCadastroActionPerformed(evt);
+                btnListarConvidadoActionPerformed(evt);
             }
         });
+
+        jScrollPane2.setViewportView(lstListarConvidados);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(153, 153, 153)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(154, 154, 154)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCampoQuantidadeDePessoas))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtCampoQuantidadeDeFraldas))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCampoNomeConvidado)
-                            .addComponent(cmbCampoSelecionaFraldas, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1)))
-                .addGap(18, 18, 18)
-                .addComponent(btnSalvarQuantidadeDePessoas)
-                .addGap(98, 98, 98))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(241, 241, 241)
-                .addComponent(btnSalvarCadastro)
-                .addGap(62, 62, 62)
-                .addComponent(btnSairDoCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(txtCampoQuantidadeDeFraldas))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtCampoNomeConvidado)
+                                        .addComponent(cmbCampoSelecionaFraldas, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jScrollPane1)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(88, 88, 88)
+                                .addComponent(btnSalvarCadastro)
+                                .addGap(62, 62, 62)
+                                .addComponent(btnListarConvidado, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(178, 178, 178))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(119, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtCampoQuantidadeDePessoas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSalvarQuantidadeDePessoas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCampoNomeConvidado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,8 +150,10 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
                 .addGap(32, 32, 32)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSalvarCadastro)
-                    .addComponent(btnSairDoCadastro))
-                .addGap(29, 29, 29))
+                    .addComponent(btnListarConvidado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,40 +177,42 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSalvarQuantidadeDePessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarQuantidadeDePessoasActionPerformed
-
-        ValidarCampoQuantidadeDeConvidados();
-
-
-    }//GEN-LAST:event_btnSalvarQuantidadeDePessoasActionPerformed
-
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
-        if (i < cadastraListaConvidado.length) {
-            pessoa = new Pessoa();
 
-            pessoa.setNome(txtCampoNomeConvidado.getName());
-            if (txtCampoNomeConvidado.getText().equals("") || txtCampoQuantidadeDeFraldas.getText().equals("")) {
-                JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
-                txtCampoNomeConvidado.requestFocus();
-                txtCampoQuantidadeDeFraldas.requestFocus();
-            } else {
-                cadastraListaConvidado[i] = pessoa;
-                i++;
-                qtdConvidados = cadastraListaConvidado.length - i;
-                JOptionPane.showMessageDialog(null, "Convidado Cadastrado com sucesso!", "" + "Você pode cadastar mais: " + qtdConvidados + " Pessoa", JOptionPane.INFORMATION_MESSAGE);
-                LimparCampos();
-            }
+
+        try {
+
+            pp.setNome(txtCampoNomeConvidado.getText());
+
+            dados.cadastrarContatos(pp);
+            LimparCampos();
+            JOptionPane.showMessageDialog(this, " Contato cadastrado com sucesso");
+
+        } catch (Exception e) {
         }
+
 
     }//GEN-LAST:event_btnSalvarCadastroActionPerformed
 
-    private void btnSairDoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairDoCadastroActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnSairDoCadastroActionPerformed
-
-    private void txtCampoQuantidadeDePessoasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCampoQuantidadeDePessoasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCampoQuantidadeDePessoasActionPerformed
+    private void btnListarConvidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarConvidadoActionPerformed
+                
+        String[] listarConvidados = new String[dados.convidados.size()];
+        
+        for(int i =0; i < dados.convidados.size(); i++){
+            Pessoa convidados = (Pessoa) dados.convidados.get(i);
+            String convidadoAtual = " ";
+            
+            convidadoAtual += "Nome: " +convidados.getNome();
+            
+            listarConvidados[i] = convidadoAtual;
+        }
+        
+        
+        lstListarConvidados.setListData(listarConvidados);
+        
+        
+        
+    }//GEN-LAST:event_btnListarConvidadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -271,45 +257,41 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnSairDoCadastro;
+    private javax.swing.JButton btnListarConvidado;
     private javax.swing.JButton btnSalvarCadastro;
-    private javax.swing.JButton btnSalvarQuantidadeDePessoas;
     private javax.swing.JComboBox<String> cmbCampoSelecionaFraldas;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> lstListarConvidados;
     private javax.swing.JTextArea txtCampoMimo;
     private javax.swing.JTextField txtCampoNomeConvidado;
     private javax.swing.JTextField txtCampoQuantidadeDeFraldas;
-    private javax.swing.JTextField txtCampoQuantidadeDePessoas;
     // End of variables declaration//GEN-END:variables
 
     public void LimparCampos() {
-        txtCampoQuantidadeDePessoas.setText("");
         txtCampoNomeConvidado.setText("");
         txtCampoQuantidadeDeFraldas.setText("");
         txtCampoMimo.setText("");
         cmbCampoSelecionaFraldas.setSelectedIndex(0);
     }
 
-    public void ValidarCampoQuantidadeDeConvidados() {
-        if (txtCampoQuantidadeDePessoas.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
-            txtCampoQuantidadeDePessoas.requestFocus();
-        } else {
-            cadastraListaConvidado = new Pessoa[Integer.parseInt(txtCampoQuantidadeDePessoas.getText())];
-            JOptionPane.showMessageDialog(null, "Número de convidado cadastrado! "
-                    + " Por favor digite os dados dos convidados");
-            txtCampoNomeConvidado.requestFocus();
-            txtCampoQuantidadeDePessoas.setText("");
-
-        }
-    }
-
+//    public void ValidarCampoQuantidadeDeConvidados() {
+//        if (txtCampoQuantidadeDePessoas.getText().equals("")) {
+//            JOptionPane.showMessageDialog(null, "Preencha o campo corretamente!");
+//            txtCampoQuantidadeDePessoas.requestFocus();
+//        } else {
+//            cadastraListaConvidado = new Pessoa[Integer.parseInt(txtCampoQuantidadeDePessoas.getText())];
+//            JOptionPane.showMessageDialog(null, "Número de convidado cadastrado! "
+//                    + " Por favor digite os dados dos convidados");
+//            txtCampoNomeConvidado.requestFocus();
+//            txtCampoQuantidadeDePessoas.setText("");
+//
+//        }
 //    public void ValidarCamposConvidado() {
 //        if (txtCampoNomeConvidado.getText().equals("") && txtCampoQuantidadeDeFraldas.getText().equals("")) {
 //            JOptionPane.showMessageDialog(null, "Por Favor preencha os campos corretamente!");

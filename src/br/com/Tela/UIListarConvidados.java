@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.TelaCadastroConvidado;
+package br.com.Tela;
+
+import br.com.classe.Dados;
+import br.com.classe.Pessoa;
 
 /**
  *
  * @author Jean Heberth
  */
 public class UIListarConvidados extends javax.swing.JFrame {
+
+    Dados dados = new Dados();
+    Pessoa pp = new Pessoa();
 
     /**
      * Creates new form UIListarConvidados
@@ -42,7 +48,7 @@ public class UIListarConvidados extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("reltarior");
+        jButton1.setText("Relatório");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -59,7 +65,7 @@ public class UIListarConvidados extends javax.swing.JFrame {
                         .addGap(46, 46, 46)
                         .addComponent(txtValorRelatorio, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(175, 175, 175)
+                        .addGap(186, 186, 186)
                         .addComponent(jButton1)))
                 .addContainerGap(336, Short.MAX_VALUE))
         );
@@ -94,11 +100,14 @@ public class UIListarConvidados extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtValorRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtValorRelatorioActionPerformed
-       
+
     }//GEN-LAST:event_txtValorRelatorioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    
+
+       
+        
+        
         
         
         

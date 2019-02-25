@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.TelaDeLogin;
+package br.com.Tela;
 
-import br.com.TelaCadastroAniversariante.UITelaListaDeCadastroDoAniversariante;
-import br.com.TelaCadastroConvidado.UITelaListaDeCadastroDeConvidado;
+import br.com.Tela.UITelaListaDeCadastroDoAniversariante;
+import br.com.classe.UITelaListaDeCadastroDeConvidado;
 import javax.swing.JOptionPane;
 
 /**
