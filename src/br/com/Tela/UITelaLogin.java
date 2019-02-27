@@ -6,7 +6,6 @@
 package br.com.Tela;
 
 import br.com.Tela.UITelaListaDeCadastroDoAniversariante;
-import br.com.classe.UITelaListaDeCadastroDeConvidado;
 import javax.swing.JOptionPane;
 
 /**

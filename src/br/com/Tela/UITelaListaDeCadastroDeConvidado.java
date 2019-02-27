@@ -3,9 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.classe;
+package br.com.Tela;
 
 import br.com.classe.Dados;
+import br.com.classe.Dados;
+import br.com.classe.Pessoa;
 import br.com.classe.Pessoa;
 import javax.swing.JOptionPane;
 
@@ -15,10 +17,8 @@ import javax.swing.JOptionPane;
  */
 public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
-   
     Pessoa pp = new Pessoa();
     Dados dados = new Dados();
-    
 
     public UITelaListaDeCadastroDeConvidado() {
         initComponents();
@@ -179,7 +179,6 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
     private void btnSalvarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarCadastroActionPerformed
 
-
         try {
 
             pp.setNome(txtCampoNomeConvidado.getText());
@@ -195,23 +194,21 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalvarCadastroActionPerformed
 
     private void btnListarConvidadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarConvidadoActionPerformed
-                
-        String[] listarConvidados = new String[dados.convidados.size()];
-        
-        for(int i =0; i < dados.convidados.size(); i++){
-            Pessoa convidados = (Pessoa) dados.convidados.get(i);
+
+        String[] listarConvidados = new String[dados.getConvidados().size()];
+
+        for (int i = 0; i < dados.getConvidados().size(); i++) {
+            Pessoa convidados = (Pessoa) dados.getConvidados().get(i);
             String convidadoAtual = " ";
-            
-            convidadoAtual += "Nome: " +convidados.getNome();
-            
+
+            convidadoAtual += "Nome: " + convidados.getNome();
+
             listarConvidados[i] = convidadoAtual;
         }
-        
-        
+
         lstListarConvidados.setListData(listarConvidados);
-        
-        
-        
+
+
     }//GEN-LAST:event_btnListarConvidadoActionPerformed
 
     /**

@@ -13,10 +13,19 @@ import java.util.ArrayList;
  */
 public class Dados {
 
-    ArrayList<Pessoa> convidados = new ArrayList();
+    private ArrayList<Pessoa> convidados = new ArrayList();
 
     public void cadastrarContatos(Pessoa pessoa) {
         this.convidados.add(pessoa);
 
     }
+
+    public ArrayList<Pessoa> getConvidados() {
+        return convidados;
+    }
+
+    public void setConvidados(ArrayList<Pessoa> convidados) {
+        this.convidados = convidados;
+    }
+
 }

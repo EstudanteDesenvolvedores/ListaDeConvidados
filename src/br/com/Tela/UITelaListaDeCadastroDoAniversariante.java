@@ -1,6 +1,5 @@
 package br.com.Tela;
 
-import br.com.classe.UITelaListaDeCadastroDeConvidado;
 import br.com.classe.Pessoa;
 import javax.swing.JOptionPane;
 
