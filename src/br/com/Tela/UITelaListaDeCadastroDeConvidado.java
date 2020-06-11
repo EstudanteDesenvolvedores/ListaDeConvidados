@@ -85,6 +85,11 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
             }
         });
 
+        lstListarConvidados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lstListarConvidadosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(lstListarConvidados);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -182,6 +187,8 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         try {
 
             pp.setNome(txtCampoNomeConvidado.getText());
+            pp.setQuantidadeFraldas(Integer.parseInt(txtCampoQuantidadeDeFraldas.getText()));
+            pp.setMimo(txtCampoMimo.getText());
 
             dados.cadastrarContatos(pp);
             LimparCampos();
@@ -200,8 +207,14 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
         for (int i = 0; i < dados.getConvidados().size(); i++) {
             Pessoa convidados = (Pessoa) dados.getConvidados().get(i);
             String convidadoAtual = " ";
-
-            convidadoAtual += "Nome: " + convidados.getNome();
+            String lineSeparator = System.getProperty("line.separator");
+            
+            
+            convidadoAtual += "Nome:" +convidados.getNome();
+           
+            convidadoAtual += "Quantidade de fraldas: " + convidados.getQuantidadeFraldas();
+            System.out.println("");
+            convidadoAtual += "Mimo : " + convidados.getMimo();
 
             listarConvidados[i] = convidadoAtual;
         }
@@ -210,6 +223,10 @@ public class UITelaListaDeCadastroDeConvidado extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_btnListarConvidadoActionPerformed
+
+    private void lstListarConvidadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lstListarConvidadosMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lstListarConvidadosMouseClicked
 
     /**
      * @param args the command line arguments

@@ -15,10 +15,30 @@ public class Pessoa {
 
     private String nome;
     private String dataAniversario;
+    private Integer quantidadeFraldas;
+    private String mimo;
 
-    public Pessoa(String nome, String dataAniversario) {
+    public Pessoa(String nome, String dataAniversario, Integer quantidadeFraldas, String mimo) {
         this.nome = nome;
         this.dataAniversario = dataAniversario;
+        this.quantidadeFraldas = quantidadeFraldas;
+        this.mimo = mimo;
+    }
+
+    public Integer getQuantidadeFraldas() {
+        return quantidadeFraldas;
+    }
+
+    public void setQuantidadeFraldas(Integer quantidadeFraldas) {
+        this.quantidadeFraldas = quantidadeFraldas;
+    }
+
+    public String getMimo() {
+        return mimo;
+    }
+
+    public void setMimo(String mimo) {
+        this.mimo = mimo;
     }
 
     public Pessoa() {
@@ -44,6 +64,5 @@ public class Pessoa {
     public void quantidadeFraldas() {
 
     }
-  
 
 }
